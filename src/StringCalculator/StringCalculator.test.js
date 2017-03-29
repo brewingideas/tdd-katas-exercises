@@ -30,5 +30,21 @@ describe('String Calculator', () => {
     const calc = new Calculator();
     expect(calc.add('1,2\n3,2')).toBe(8);
   });
-});
 
+  it('should not return 4 when given 1,\n 3', () => {
+    const calc = new Calculator();
+    expect(calc.add('1,\n3')).not.toBe(4);
+  });
+
+  it('should return 3 when given //;\n1;2', () => {
+    const calc = new Calculator();
+    expect(calc.add('//;\n1;2')).toBe(3);
+  });
+
+  it('should return an error when given -1', () => {
+    const calc = new Calculator();
+    expect(() => {
+      calc.add('-1');
+    }).toThrow(new Error('Negatives not allowed: -1'));
+  });
+});
