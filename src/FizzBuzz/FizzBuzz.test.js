@@ -1,56 +1,51 @@
 import FizzBuzz from './FizzBuzz';
 
-describe('FizzBuzz', () => {
-  it('should print 100 values', () => {
-    const fizzBuzz = new FizzBuzz();
-    const numbers = fizzBuzz.print();
-    expect(numbers.length).toBe(100);
-  });
+describe('FizzBuzz Should', () => {
 
-  it('shoud print Fizz on the third item', () => {
-    const fizzBuzz = new FizzBuzz();
-    const numbers = fizzBuzz.print();
-    expect(numbers[2]).toBe('Fizz');
-  });
+  it('print one when value is one', () => {
+      const fizzBuzz = new FizzBuzz();
+      expect(fizzBuzz.print(1)).toEqual(1);
+    });
 
-  it('should print Buzz on the fifth item', () => {
-    const fizzBuzz = new FizzBuzz();
-    const numbers = fizzBuzz.print();
-    expect(numbers[4]).toBe('Buzz');
-  });
+  it('print two when value is two', () => {
+      const fizzBuzz = new FizzBuzz();
+      expect(fizzBuzz.print(2)).toEqual(2);
+    });
 
-  it('should print FizzBuzz on the fifthteenth item', () => {
-    const fizzBuzz = new FizzBuzz();
-    const numbers = fizzBuzz.print();
-    expect(numbers[14]).toBe('FizzBuzz');
-  });
+    it('print fizz when value is three', () => {
+        const fizzBuzz = new FizzBuzz();
+        expect(fizzBuzz.print(3)).toEqual('fizz');
+    });
 
-  it('should print Fizz on sixth item', () => {
-    const fizzBuzz = new FizzBuzz();
-    const numbers = fizzBuzz.print();
-    expect(numbers[5]).toBe('Fizz');
-  });
+    it('print four when value is four', () => {
+        const fizzBuzz = new FizzBuzz();
+        expect(fizzBuzz.print(4)).toEqual(4);
+    });
 
-  it('should print Buzz on twenty-fifth item', () => {
-    const fizzBuzz = new FizzBuzz();
-    const numbers = fizzBuzz.print();
-    expect(numbers[24]).toBe('Buzz');
-  });
+    it('print buzz when value is five', () => {
+        const fizzBuzz = new FizzBuzz();
+        expect(fizzBuzz.print(5)).toEqual('buzz');
+    });
 
-  it('should print FizzBuzz on thirtieth item', () => {
-    const fizzBuzz = new FizzBuzz();
-    const numbers = fizzBuzz.print();
-    expect(numbers[29]).toBe('FizzBuzz');
-  });
+    it('print fizz when value is six', () => {
+        const fizzBuzz = new FizzBuzz();
+        expect(fizzBuzz.print(6)).toEqual('fizz');
+    });
 
-  it('should print 7 on seventh item', () => {
-    const fizzBuzz = new FizzBuzz();
-    const numbers = fizzBuzz.print();
-    expect(numbers[6]).toBe(7);
-  });
-  it('should print 22 on twenty-second item', () => {
-    const fizzBuzz = new FizzBuzz();
-    const numbers = fizzBuzz.print();
-    expect(numbers[21]).toBe(22);
-  });
+    it('print buzz when value is nine', () => {
+        const fizzBuzz = new FizzBuzz();
+        expect(fizzBuzz.print(9)).toEqual('fizz');
+    });
+
+    it('print buzz when value is ten', () => {
+        const fizzBuzz = new FizzBuzz();
+        expect(fizzBuzz.print(10)).toEqual('buzz');
+    });
+
+    it('print fizzbuzz when value is fifteen', () => {
+        const fizzBuzz = new FizzBuzz();
+        expect(fizzBuzz.print(15)).toEqual('fizzbuzz');
+    });
+
+
 });

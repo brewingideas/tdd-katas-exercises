@@ -1,19 +1,11 @@
 class LeapYear {
   static isLeapYear(year) {
-    return (LeapYear.isDivisableByFour(year) && LeapYear.isNotDivisableByOneHundred(year)) ||
-           (LeapYear.isNotDivisableByFourHundred(year));
-  }
 
-  static isDivisableByFour(year) {
-    return year % 4 === 0;
-  }
+    if (year % 400 === 0 && year ) return true;
+    if (year % 100 === 0) return false;
+    if (year % 4 === 0) return true;
 
-  static isNotDivisableByOneHundred(year) {
-    return year % 100 !== 0;
-  }
-
-  static isNotDivisableByFourHundred(year) {
-    return year % 400 === 0;
+    return false;
   }
 }
 

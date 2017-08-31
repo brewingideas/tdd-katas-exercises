@@ -1,30 +1,17 @@
 class FizzBuzz {
 
-  constructor() {
-    this.numbers = new Array(100);
-    for (let i = 0; i < this.numbers.length; i += 1) {
-      this.numbers[i] = i + 1;
-    }
-  }
+    print(number) {
+        let value = '';
 
-  setWord(i, divider, word) {
-    if ((i + 1) % divider === 0) {
-      this.numbers[i] = word;
-    }
-  }
+        if (number % 3 === 0) value = 'fizz';
 
-  displayFizzBuzz() {
-    for (let i = 0; i < this.numbers.length; i += 1) {
-      this.setWord(i, 3, 'Fizz');
-      this.setWord(i, 5, 'Buzz');
-      this.setWord(i, 15, 'FizzBuzz');
-    }
-  }
+        if (number % 5 === 0) value += 'buzz';
 
-  print() {
-    this.displayFizzBuzz();
-    return this.numbers;
-  }
+        if (value === '') return number;
+
+        return value;
+    };
+
 }
 
 export default FizzBuzz;
