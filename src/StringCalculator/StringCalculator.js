@@ -1,33 +1,35 @@
 class StringCalculator {
 
+
     Add(numbers) {
 
-        var  separatedNumbers = String(numbers).split(',');
-        var  firstNumber = Number(separatedNumbers[0]);
+        const DefaultDelimiter = ',';
 
-        if (numbers === '3,3,3') {
-            return 9;
-        }
-
-        if (numbers === '20,4,4') {
-            return 28;
-        }
-
-        if (numbers === '20,10,5') {
-            return 35;
-        }
-
-        if (separatedNumbers.length === 2){
-            var  secondNumber = Number(separatedNumbers[1]);
-
-            return firstNumber + secondNumber;
-        }
-
-        if(isNaN(firstNumber)){
+        if(numbers === undefined){
             return 0;
         }
 
-        return firstNumber;
+        numbers = numbers.toString();
+
+        var delimiter = DefaultDelimiter;
+
+        if (numbers.match(/\/\/(.)\n/g)){
+            delimiter = numbers[2];
+            numbers = numbers.substr(4);
+        }
+
+        var separatedNumbers = String(numbers).replace(/\n/g, delimiter).split(delimiter);
+
+        var  number;
+        var total = 0;
+
+        for (var i = 0; i < separatedNumbers.length; i++) {
+            number = Number(separatedNumbers[i]);
+            // console.log(number);
+            total = total + number;
+        }
+
+        return total;
     }
 }
 
