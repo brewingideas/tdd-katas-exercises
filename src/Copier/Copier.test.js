@@ -1,60 +1,32 @@
 import Copier from './Copier';
 
-describe('Character Copier', () => {
-  it('should copy character from source to destination', () => {
-    const destination = {
-      setCharacter(character) {
-        window.console.info('setting char ', character);
-      },
-    };
-    spyOn(destination, 'setCharacter');
-
+describe('Character Copier Should', () => {
+  it('call source to get character', () => {
     const source = {
-      getCharacter() {},
+      getChar() {},
     };
-    spyOn(source, 'getCharacter').and.returnValues('x', '\n');
 
-    const copier = new Copier(source, destination);
+    const spy = spyOn(source, 'getChar');
+
+    let copier = new Copier(source);
     copier.copy();
 
-    expect(destination.setCharacter).toHaveBeenCalledWith('x');
+    expect(spy).toHaveBeenCalled();
   });
-
-  it('should stop copying when new line is encountered', () => {
-    const destination = {
-      setCharacter(character) {
-        window.console.info('setting char ', character);
-      },
-    };
-    spyOn(destination, 'setCharacter');
+  // pointless test
+  it('get character from source', () => {
 
     const source = {
-      getCharacter() {},
+      getChar(){
+      }
     };
-    spyOn(source, 'getCharacter').and.returnValue('\n');
 
-    const copier = new Copier(source, destination);
-    copier.copy();
-    expect(destination.setCharacter).not.toHaveBeenCalled();
-  });
+    spyOn(source, 'getChar').and.returnValue('a');
 
-  it('should copy until new line is encountered', () => {
-    const destination = {
-      setCharacter(character) {
-        window.console.info('setting char ', character);
-      },
-    };
-    spyOn(destination, 'setCharacter');
-
-    const source = {
-      getCharacter() {},
-    };
-    spyOn(source, 'getCharacter').and.returnValues('a', 'b', '\n');
-
-    const copier = new Copier(source, destination);
+    let copier = new Copier(source);
     copier.copy();
 
-    expect(destination.setCharacter).toHaveBeenCalledWith('a');
-    expect(destination.setCharacter).toHaveBeenCalledWith('b');
+    expect(source.getChar()).toBe('a');
   });
+
 });

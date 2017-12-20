@@ -1,16 +1,11 @@
 class Copier {
 
-  constructor(source, destination) {
+  constructor(source){
     this.source = source;
-    this.dest = destination;
   }
 
   copy() {
-    let characteer = this.source.getCharacter();
-    while (characteer !== '\n') {
-      this.dest.setCharacter(characteer);
-      characteer = this.source.getCharacter();
-    }
+    this.source.getChar();
   }
 }
 
